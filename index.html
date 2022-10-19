@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-br" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Campanha de doação de brinquedos">
+    <meta property="og:title" content="Juntos pelo Natal" />
+    <meta property="og:image" content="img/noel1.png">
+    <meta property="og:url" content="https://www.colegiobarao.info/operacaonatal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Operação Natal</title>
+    <link rel="icon" href="img/gift-fill.svg" color="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+
+    <!-- Importando Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5FGP45ZNH1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-5FGP45ZNH1');
+	</script>
+
+
+    <style>
+        /* Não se preocupe, o meu quarto é tão arrumado quanto o CSS nesse código */
+        
+        #neve {
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+        }
+        
+        .agradecimentos {
+            background: linear-gradient(to top, #C21D1D 0%, #FC6C6C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .atendente-whats {
+            border-color: #25D366;
+            border-radius: 50%;
+            border-style: solid;
+            border-width: 3px;
+            transition: .2s;
+        }
+        
+        .atendente-whats:hover {
+            border-width: 5px;
+            transform: scale(98%);
+            transition: .2s;
+        }
+        
+        .button {
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            flex-wrap: wrap;
+            height: 2em;
+            left: 27%;
+            opacity: 1;
+            position: absolute;
+            top: 20px;
+            transition: .3s transform ease-in-out, .3s opacity ease-in-out;
+            width: 2em;
+        }
+        
+        .button span {
+            background-color: #000;
+            border-radius: 20%;
+            color: #000;
+            height: 4px;
+            width: 100%;
+        }
+        
+        .button:hover {
+            opacity: 0.8;
+        }
+        
+        .container-separator {
+            background: #ce313d;
+            height: 1vh;
+            position: relative;
+        }
+        
+        .container-valores {
+            align-items: stretch;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .links a {
+            color: hsl(180, 3%, 8%);
+            font-family: Montserrat, sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .links li {
+            padding: 0 20px;
+        }
+        
+        .links li a {
+            transition: color .3s ease 0;
+        }
+        
+        .links li a:hover {
+            color: #AF0804;
+        }
+        
+        .menu {
+            background: #dcdcdc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 12px;
+            margin-top: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: .3s border-radius ease-in-out, .3s height ease-in-out;
+            width: 70px;
+            z-index: 200;
+        }
+        
+        .menu--closed {
+            height: 70px;
+        }
+        
+        .menu--open {
+            height: 400px;
+        }
+        
+        .menu--open .button {
+            transform: rotate(90deg);
+        }
+        
+        .menu-div {
+            display: none;
+        }
+        
+        .missao div img,
+        .visao div img,
+        .valores div img {
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.25)) drop-shadow(0 10px 10px rgba(0, 0, 0, 0.22));
+        }
+        
+        .missao,
+        .visao,
+        .valores {
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+            display: inline-block;
+            width: 30%;
+        }
+        
+        .secao-campanha,
+        .secao-comodoar {
+            background-color: #fff;
+        }
+        
+        .secao-contato {
+            background-color: #2c3e50;
+            color: #FFF;
+        }
+        
+        .secao-quemsomos {
+            background-color: #ce313d;
+            background-position: 0 0 0 0 0 0 0 0 0 0;
+            background-size: 100% 100%;
+        }
+        
+        .secao-quemsomos p {
+            text-align: justify;
+        }
+        
+        .spikes-top {
+            background: #fff;
+            height: 6vh;
+            position: relative;
+        }
+        
+        .spikes-top::after {
+            background-image: linear-gradient(135deg, #fff 25%, transparent 25%), linear-gradient(225deg, #fff 25%, transparent 25%);
+            background-position: 0 0;
+            background-size: 50px 100%;
+            content: '';
+            display: block;
+            height: 80px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            z-index: 10;
+        }
+        
+        .curved {
+            position: relative;
+            background: #2c3e50;
+            height: 15vh;
+        }
+        
+        .curved::after {
+            content: '';
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 100%;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            height: 20%;
+        }
+        
+        .titulo span {
+            color: #FFF;
+            cursor: default;
+            font-family: Pacifico;
+            line-height: 110px;
+            text-align: center;
+            text-shadow: 2px 2px 1px #00000080, 2px -2px 1px #00000080, -2px 2px 1px #00000080, -2px -2px 1px #00000080, 2px 0 1px #00000080, 0 2px 1px #00000080, -2px 0 1px #00000080, 0 -2px 1px #00000080;
+            user-select: none;
+        }
+        
+        .titulo,
+        .div-quemsomos {
+            display: flex;
+        }
+        
+        .tools {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 80%;
+            justify-content: space-between;
+            transition: .3s margin ease-in-out;
+        }
+        
+        .tools a {
+            transition: .2s transform ease-in-out;
+        }
+        
+        .tools a:hover {
+            transform: scale(0.9);
+        }
+        
+        .tools--hidden {
+            margin-top: 300px;
+            z-index: -100;
+        }
+        
+        .tools--visible {
+            z-index: 100;
+        }
+        
+        .foto-guris {
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        
+        .wave {
+            background: #ce313d;
+            bottom: 0;
+            height: 50px;
+            position: absolute;
+            width: 100%;
+        }
+        
+        .wave::after {
+            background-color: #ce313d;
+            height: 100%;
+            left: -1.5%;
+            top: 40%;
+            width: 55%;
+        }
+        
+        .wave::before {
+            background-color: #fff;
+            height: 109%;
+            right: -1.5%;
+            top: 60%;
+            width: 55%;
+        }
+        
+        .wave::before,
+        .wave::after {
+            border-radius: 100% 50%;
+            content: "";
+            display: block;
+            position: absolute;
+        }
+        
+        .skewed {
+            position: relative;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #2c3e50;
+            z-index: 0;
+            transform: skewY(1deg) translateY(100%);
+            transform-origin: top right;
+        }
+        
+        iframe {
+            border-radius: 6px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            width: 94%;
+            height: 100%;
+        }
+        
+        .footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #2c3e50;
+            height: auto;
+            color: white
+        }
+        
+        .reciclagem-img {
+            width: 10%;
+            height: 100%
+        }
+        
+        .reciclagem-btn {
+            transform: scale(1);
+            transition: 0.2s;
+        }
+        
+        .reciclagem-btn:hover {
+            transform: scale(1.05);
+            transition: 0.2s;
+        }
+        
+        body {
+            background-color: #fff;
+            margin: 0;
+            max-width: 100%;
+            overflow-x: hidden;
+            padding: 0;
+        }
+        
+        div.imagem {
+            background-image: url(img/fundo2.jpg);
+            background-origin: padding-box;
+            background-position-x: 50%;
+            background-repeat: repeat;
+            background-size: cover;
+            box-shadow: inset 0 -200px 80px -150px rgba(0, 0, 0, 0.9);
+            -webkit-box-shadow: inset 0 -200px 80px -150px rgba(0, 0, 0, 0.9);
+        }
+        
+        header {
+            align-items: center;
+            background-color: hsl(270, 20%, 96%);
+            display: flex;
+            justify-content: space-around;
+            padding: 18px 6%;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .missao,
+            .visao,
+            .valores {
+                width: 90%;
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .links,
+            header {
+                display: none;
+            }
+            .menu-div {
+                display: block;
+            }
+            .foto-guris {
+                padding: 5px;
+            }
+            iframe {
+                height: 60vh;
+            }
+            .reciclagem-img {
+                width: 30%;
+                height: 100%
+            }
+            .missao,
+            .visao,
+            .valores {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: fixed; z-index: 500;" class="menu-div">
+        <div class="menu menu--closed align-items-start shadow-lg">
+            <div class="button">
+                <span> </span>
+                <span> </span>
+                <span> </span>
+            </div>
+            <div class="tools tools--hidden mx-auto pt-5">
+                <!-- quem somos -->
+                <a href="#secao-quemsomos" class="py-1" id="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="black" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </a>
+
+                <!-- campanha -->
+                <a href="#secao-campanha" class="py-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="black" class="bi bi-box-seam" viewBox="0 0 16 16">
+                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                    </svg>
+                </a>
+
+                <!-- como doar -->
+                <a href="#secao-comodoar" class="py-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="black" class="bi bi-gift" viewBox="0 0 16 16">
+                        <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z"/>
+                    </svg>
+                </a>
+
+                <!-- contato -->
+                <a href="#secao-contato" class="py-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="black" class="bi bi-telephone" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                    </svg>
+                </a>
+
+                <!-- agradecimentos -->
+                <a href="#secao-agradecimentos" class="py-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="black" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav>
+            <ul class="links my-auto">
+                <li><a href="#secao-quemsomos">Quem somos</a></li>
+                <div class="vr"></div>
+                <li><a href="#secao-campanha">Campanha</a></li>
+                <div class="vr"></div>
+                <li><a href="#secao-comodoar">Como doar</a></li>
+                <div class="vr"></div>
+                <li><a href="#secao-contato">Contato</a></li>
+                <div class="vr"></div>
+                <li><a href="#secao-agradecimentos" class="agradecimentos">Agradecimentos ❤️</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- esse div guarda as partículas de neve que caem no site -->
+    <div id="neve"></div>
+
+    <div class="imagem" style="z-index: 1;">
+        <div class="py-5"></div>
+        <div class="py-2"></div>
+        <img src="img/luzes.png" width="100%">
+        <div class="container-lg py-5">
+            <div class="titulo justify-content-center">
+                <span class="mx-auto my-auto display-1">Operação Natal</span>
+            </div>
+        </div>
+        <div class="py-5"></div>
+        <div class="py-5"></div>
+        <div class="py-2"></div>
+    </div>
+
+    <div class="secao-quemsomos" id="secao-quemsomos" name="secao-quemsomos" style="z-index: 3;">
+        <p class="display-5 text-center pt-5" style="font-family: Pacifico, cursive; color: white;">Quem Somos</p>
+        <div class="container pb-5 row mx-auto" style="display: flex;">
+            <div class="div-quemsomos col-md">
+                <div class="py-4 px-2 ">
+                    <p style="text-align: justify; color: white; font-size: 18px ">
+                        Somos uma equipe da 2 TII do Colégio Barão de Antonina, estamos juntos desenvolvendo uma atividade que visa trazer um natal mais especial para as crianças da cidade de Rio Negro.
+                        <br>Entendemos e acreditamos que não há consequência sem causa ou seja "nada vem do além " se algo está acontecendo agora, houve uma causa no passado próximo ou remoto.
+                    </p>
+                </div>
+            </div>
+            <div class="div-quemsomos col-md " style="display: flex;">
+                <div class="py-4 px-2 ">
+                    <p style="text-align: justify; color: white; font-size: 18px ">
+                        Percebemos a importância de pequenas causas e sabemos que em um futuro bem aproximado, esses pequenos gestos produzirão grandes efeitos, por este motivo contamos com a sua ajuda em nossa <b>Operação Natalina</b>, não deixe que
+                        o Natal seja somente uma data, faça que se torne um sentimento de gratidão e compaixão. Seja solidário, faça alguém feliz e brilhe o mundo!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container-separator">
+        <div class="wave"></div>
+    </section>
+
+    <div class="secao-campanha" id="secao-campanha" name="secao-campanha">
+        <p class="display-5 text-center pt-5" style="font-family: Pacifico, cursive; color: #D23E5AFF;">Campanha</p>
+        <div class="container pb-5">
+            <div class="pt-3 container-valores">
+                <div class="missao card p-2 mx-2 my-3">
+                    <div style="display: flex;">
+                        <img src="img/missao.png" class="mx-auto" width="60%">
+                    </div>
+                    <p class="pt-2 text-center">
+                        Nossa missão é de resgatar sorrisos, pois o cuidar também é fazer sorrir, doe brinquedos e ajude a encher um coração de alegria! 🤗
+                    </p>
+                </div>
+                <div class="visao card p-2 mx-2 my-3">
+                    <div style="display: flex;">
+                        <img src="img/visao.png" class="mx-auto" width="60%">
+                    </div>
+                    <p class="pt-2 text-center">
+                        Nosso propósito não é de fazer da doação um doador, mas sim, a intenção de cada pessoa ao colaborar. Venha conosco e deixe além da doação o seu carinho! 😊
+                    </p>
+                </div>
+                <div class="valores card p-2 mx-2 my-3">
+                    <div style="display: flex;">
+                        <img src="img/valores.png " class="mx-auto" width="60%">
+                    </div>
+                    <p class="pt-2 text-center">
+                        Solidariedade, Trabalho em equipe, Empatia, Amor, Humildade, Respeito e Bondade.
+                    </p>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-5">
+                <p class="text-center" style="font-family: 'Source Sans Pro', sans-serif; font-size: xx-large;">Vídeo informativo da campanha:</p>
+                <div class="d-flex shadow-lg w-75 mx-auto">
+                    <div class="mx-auto  w-100 shadow-lg">
+                        <video width="100%" height="100%" controls>
+                        <source src="video_campanha.mp4" type="video/mp4">
+                        Seu navegador não é compatível com o reprodutor de vídeo.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr width="90%" class="mx-auto">
+
+    <div class="secao-comodoar" id="secao-comodoar" name="secao-comodoar">
+        <p class="display-5 text-center pt-5" style="font-family: Pacifico, cursive; color: #D23E5AFF;">Como Doar</p>
+        <div class="container pb-5">
+            <div class="row">
+                <p class="col-md-8">
+                    Saiba como doar brinquedos usados e fazer novas crianças felizes! ❤️<br>Aprender a doar é um dos pilares de valor que precisa ser ainda mais incentivada nos dias de hoje.
+                    <br><br><b>Mas o que é doar?</b><br>O ato de doar promove efetivamente a transformação para o melhor da sociedade e das instituições, doar é um ato de fazer algo por alguém sem esperar nada em troca. Estamos habituados a perceber a
+                    importância desse gesto, portanto, a solidariedade é a engrenagem que move o ser humano a doar o melhor de si em benefício do outro, fazendo com que esses brinquedos despertem sorrisos e alimentem sonhos. Este ano, esperamos sua doação
+                    para que possamos beneficiar o máximo de crianças juntos.
+                    <br><br> O ponto de coleta se encontra no Colégio Barão de Antonina em frente a secretária, as doações devem ser feitas até a próxima sexta-feira (10/12).
+                    <br>Venha fazer a diferença!
+                </p>
+                <div class="col-md-4 d-flex">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1791.4346521967748!2d-49.800146694071586!3d-26.10318468545584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf6e708d8a1c69c25!2zMjbCsDA2JzExLjUiUyA0OcKwNDcnNTguNCJX!5e0!3m2!1spt-BR!2sbr!4v1638641089816!5m2!1spt-BR!2sbr"
+                        style="border:0;" allowfullscreen="" loading="lazy" class="mx-auto"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="spikes-top"></section>
+
+    <div class="secao-contato" id="secao-contato" name="secao-contato">
+        <br>
+        <p class="display-5 text-center pt-5" style="font-family: Pacifico, cursive; color: #25D366;">Contato</p>
+        <div class="container pb-5">
+            <p class="text-center pt-2">
+                Converse com um de nós para tirar suas dúvidas via whatsapp!
+            </p>
+            <div class="d-flex container-fluid justify-content-center">
+                <div style="width: 180px; height: 220px;">
+                    <img src="img/luis.jpg" class="atendente-whats" width="100%">
+                    <a role="button" class="btn btn-outline-light w-100 mt-2" href="https://wa.me/554784627440">Conversar com Luis</a>
+                </div>
+
+                <div style="width: 80px; height: 200px;"></div>
+
+                <div style="width: 180px; height: 220px;">
+                    <img src="img/carlos.jpg" class="atendente-whats" width="100%">
+                    <a role="button" class="btn btn-outline-light w-100 mt-2" href="https://wa.me/554784715882">Conversar com Carlos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="curved"></section>
+
+    <div class="secao-agradecimentos" id="secao-agradecimentos" name="secao-agradecimentos">
+        <p class="display-5 text-center pt-5" style="font-family: Pacifico, cursive; color: #d32525;">Agradecimentos ❤️</p>
+        <div class="container pb-5">
+            <p class="text-center pt-2">
+                Com os nossos mais sinceros cumprimentos, gostaríamos de agradecer a todos os que contribuíram de forma relevante para este trabalho, e agradecer-lhes pelas amáveis ​​e importantes doações, que realizámos com sucesso na Casa de Passagem, as suas doações
+                deixam muitas crianças felizes. Muito obrigado a todos os participantes que participaram dessa Operação Natalina e doaram esses brinquedos! 😊
+            </p>
+            <br>
+            <p class="text-center pt-2" style="font-size: large;"><i>Atenciosamente,<br>A equipe "Operação Natal" do Colégio Estadual Barão de Antonina</i></p>
+            <div class="d-flex justify-content-center">
+                <img src="img/2tii.jpeg" class="mx-auto align-self-center img-fluid rounded foto-guris" width="80%">
+            </div>
+        </div>
+    </div>
+
+    <section style="height: 10vh;">
+        <div class="skewed"></div>
+    </section>
+
+    <div class="footer d-flex">
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-md-3 justify-content-center align-items-center my-3">
+                    <img src="img/logohorizontal.png" width="100%" height="100%" class="img-fluid">
+                </div>
+                <div class="col-md d-flex justify-content-center align-items-center my-3">
+                    <p class="text-center">
+                        Campanha Doação de Brinquedos do Colégio Estadual Barão de Antonina<br>Copyright ©2021<br>
+                    </p>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center align-items-center my-3 h-auto reciclagem-img mx-auto">
+                    <div class="d-flex justify-content-center mx-auto">
+                        <a class="reciclagem-btn" href="https://colegiobarao.info/info/tii2020/luiz/Pasta%20sites%20code/site_grupinho/trabalho.html">
+                            <img src="img/logoreciclagem.png" class="img-fluid mx-auto d-flex" width="100%" height="100%">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src='javascript/particles.js'></script>
+    <script src='javascript/app.js' defer></script>
+    <script>
+        $(document).ready(function() {
+            var Menu = {
+                body: $('.menu'),
+                button: $('.button'),
+                tools: $('.tools')
+            };
+            Menu.button.click(function() {
+                Menu.body.toggleClass('menu--closed');
+                Menu.body.toggleClass('menu--open');
+                Menu.tools.toggleClass('tools--visible');
+                Menu.tools.toggleClass('tools--hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>
